@@ -151,10 +151,11 @@
 
             function fetch_schedules() {
                 console.log("Fetching toc-full")
-                fetch("https://raw.githubusercontent.com/saismee/train-density-map/refs/heads/master/data/toc-full")
+                fetch("https://media.githubusercontent.com/media/saismee/train-density-map/master/data/toc-full")
                 .then(res => res.text())
                 .then(text => {
                     var data = text.split(/\r?\n|\r|\n/g)
+                    console.log(data)
 
                     console.log("entries: " + data.length)
                     for (element of data) {
