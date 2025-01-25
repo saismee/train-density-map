@@ -54,10 +54,10 @@ https://www.openstreetmap.org/
 
 
 
-YELLOW = 0 schedules
-RED = 250 schedules
+Thickness indicates schedule count in an area.
+Overlapping lines mean a schedule takes a similar path but is not timed at the same locations.
 
-Overlapping lines mean a schedule takes a similar path but is not timed at the same locations
+Only <b>freight traffic</b> (Operator ZZ) is shown.  Updated 2025-01-25
         </pre>
         
         <h1 id="status">Loading Data</h1>
@@ -107,7 +107,7 @@ Overlapping lines mean a schedule takes a similar path but is not timed at the s
                 set_status("generating lines")
                 for (const [loc, obj] of Object.entries(routes)) {
                     for (const [next_loc, count] of Object.entries(obj)) {
-                        L.polyline([tiploc[loc].pos, tiploc[next_loc].pos], {color: interpolate("#FFFF00", "#FF0000", count / 250.0)}).addTo(map);
+                        L.polyline([tiploc[loc].pos, tiploc[next_loc].pos], {color: "red", weight: 1.0 + count / 100.0}).addTo(map);
                     }
                 }
                 console.log("finished generating lines")
